@@ -8,7 +8,7 @@
     "android",
     "ios",
     "windows",
-    "common.js",
+    "schema",
     "index.android.js",
     "index.d.ts",
     "index.ios.js",
@@ -41,5 +41,10 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "BVLinearGradientSpec",
+    "type": "components",
+    "jsSrcsDir": "schema"
   }
 }
