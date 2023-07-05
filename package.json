@@ -1,6 +1,6 @@
 {
   "name": "react-native-linear-gradient",
-  "version": "2.7.3",
+  "version": "2.7.2",
   "description": "A <LinearGradient> element for React Native",
   "main": "index.js",
   "types": "index.d.ts",
@@ -8,7 +8,7 @@
     "android",
     "ios",
     "windows",
-    "common.js",
+    "schema",
     "index.android.js",
     "index.d.ts",
     "index.ios.js",
@@ -41,5 +41,10 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "BVLinearGradientSpec",
+    "type": "components",
+    "jsSrcsDir": "schema"
   }
 }
