@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { processColor, View } from 'react-native';
 
-import NativeLinearGradient, { type Props } from './schema/LinearGradientNativeComponent';
+import NativeLinearGradient, { type Props } from './src';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {

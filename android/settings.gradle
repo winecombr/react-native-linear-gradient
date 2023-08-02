@@ -1,0 +1,3 @@
+if (hasProperty('newArchEnabled') && getProperty('newArchEnabled') == "true") {
+    includeBuild('../node_modules/react-native-gradle-plugin')
+}

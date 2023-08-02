@@ -1,13 +1,17 @@
 package com.BV.LinearGradient;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
-import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 
+import java.com.BV.LinearGradient.LinearGradientManagerSpec;
+
 @ReactModule(name = LinearGradientManager.REACT_CLASS)
-public class LinearGradientManager extends BVLinearGradientManagerSpec<LinearGradientView> {
+public class LinearGradientManager extends LinearGradientManagerSpec<LinearGradientView> {
     public static final String REACT_CLASS = "BVLinearGradient";
     public static final String PROP_COLORS = "colors";
     public static final String PROP_LOCATIONS = "locations";
@@ -18,13 +22,15 @@ public class LinearGradientManager extends BVLinearGradientManagerSpec<LinearGra
     public static final String PROP_ANGLE = "angle";
     public static final String PROP_BORDER_RADII = "borderRadii";
 
+    @NonNull
     @Override
     public String getName() {
         return REACT_CLASS;
     }
 
+    @NonNull
     @Override
-    protected LinearGradientView createViewInstance(ThemedReactContext context) {
+    protected LinearGradientView createViewInstance(@NonNull ThemedReactContext context) {
         return new LinearGradientView(context);
     }
 
@@ -42,13 +48,15 @@ public class LinearGradientManager extends BVLinearGradientManagerSpec<LinearGra
         }
     }
 
+    @Override
     @ReactProp(name = PROP_START_POINT)
-    public void setStartPoint(LinearGradientView gradientView, ReadableArray startPoint) {
+    public void setStartPoint(LinearGradientView gradientView, ReadableMap startPoint) {
         gradientView.setStartPoint(startPoint);
     }
 
+    @Override
     @ReactProp(name = PROP_END_POINT)
-    public void setEndPoint(LinearGradientView gradientView, ReadableArray endPoint) {
+    public void setEndPoint(LinearGradientView gradientView, ReadableMap endPoint) {
         gradientView.setEndPoint(endPoint);
     }
 
@@ -60,7 +68,7 @@ public class LinearGradientManager extends BVLinearGradientManagerSpec<LinearGra
 
     @Override
     @ReactProp(name = PROP_ANGLE_CENTER)
-    public void setAngleCenter(LinearGradientView gradientView, ReadableArray in) {
+    public void setAngleCenter(LinearGradientView gradientView, ReadableMap in) {
         gradientView.setAngleCenter(in);
     }
 

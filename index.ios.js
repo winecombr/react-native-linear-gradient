@@ -2,10 +2,10 @@
  * @providesModule LinearGradient
  * @flow
  */
-import React, { Component } from 'react';
-import { processColor, View } from 'react-native';
+import React, { Component, createRef } from 'react';
+import { processColor } from 'react-native';
 
-import NativeLinearGradient, { type Props } from './schema/LinearGradientNativeComponent';
+import NativeLinearGradient, { type Props } from './src';
 
 const convertPoint = (name, point) => {
   if (Array.isArray(point)) {
@@ -24,7 +24,7 @@ const convertPoint = (name, point) => {
 
 export default class LinearGradient extends Component<Props> {
   props: Props;
-  gradientRef: any;
+  gradientRef = createRef<NativeLinearGradient>();
 
   static defaultProps = {
     start: { x: 0.5, y: 0.0 },
@@ -32,7 +32,7 @@ export default class LinearGradient extends Component<Props> {
   };
 
   setNativeProps(props: Props) {
-    this.gradientRef.setNativeProps(props);
+    this.gradientRef.current.setNativeProps(props);
   }
 
   render() {
@@ -52,7 +52,7 @@ export default class LinearGradient extends Component<Props> {
 
     return (
       <NativeLinearGradient
-        ref={(component) => { this.gradientRef = component; }}
+        ref={this.gradientRef}
         {...otherProps}
         startPoint={convertPoint('start', start)}
         endPoint={convertPoint('end', end)}

@@ -93,7 +93,7 @@ using namespace facebook::react;
 {
     return self.gradientLayer.useAngle;
 }
-    
+
 - (void)setUseAngle:(BOOL)useAngle
 {
     self.gradientLayer.useAngle = useAngle;
@@ -103,7 +103,7 @@ using namespace facebook::react;
 {
     return self.gradientLayer.angleCenter;
 }
-    
+
 - (void)setAngleCenter:(CGPoint)angleCenter
 {
     self.gradientLayer.angleCenter = angleCenter;
@@ -113,7 +113,7 @@ using namespace facebook::react;
 {
     return self.gradientLayer.angle;
 }
-    
+
 - (void)setAngle:(CGFloat)angle
 {
     self.gradientLayer.angle = angle;
@@ -163,12 +163,12 @@ using namespace facebook::react;
 
     NSArray<NSNumber *> *locations = convertCxxVectorNumberToNsArrayNumber(newViewProps.locations);
     self.locations = locations;
-    
+
     // We cannot compare SharedColor because it is shared value.
     // We could compare color value, but it is more performant to just assign new value
     NSArray<UIColor *> *colors = convertCxxVectorColorsToNSArrayColors(newViewProps.colors);
     self.colors = colors;
-    
+
     [super updateProps:props oldProps:oldProps];
 }
 
